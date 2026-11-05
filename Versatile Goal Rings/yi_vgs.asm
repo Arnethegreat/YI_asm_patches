@@ -12,16 +12,16 @@
 ; And moves afterwards with specified input and speed (or none)
 ; Select 1 for Goal Yoshi sprite at goal ring - The Player Yoshi is hidden off screen
 ; This was the first iteration but it has the problem of Baby Mario being gone suddenly but is included here anyways
-!GOAL_RING_MODE = 1
-
+!GOAL_RING_MODE = 0
 
 ; Separate Goal Ring state countdown. this controls the countdown before state 3 
 ; Basically a Timer before the !GOAL_RING_END_DELAY timer starts - it also determines when the G O A L ! sprite is spawned.
-; In mode 0, Yoshi remains frozen for this interval
-; in mode 1, this controls the countdown before state 3 only
-!GOAL_RING_ROULETTE_FRAMES = $0030
+; In mode 0, Yoshi remains frozen in goal ring for this interval
+; in mode 1, this controls the countdown before state 3 only ($0054 is the vanilla value - fits mode 1)
+!GOAL_RING_ROULETTE_FRAMES = $0160
 ; When GOAL_RING_ROULETTE_FRAMES reaches this value, the G O A L ! sprite is spawned. Keep it less than !GOAL_RING_ROULETTE_FRAMES to have it spawn
-!GOAL_RING_GOAL_SPAWN = $002F 
+; $0050 is the vanilla value
+!GOAL_RING_GOAL_SPAWN = $0150
 
 ; Flower-select roulette timer values.
 ; Vanilla Initial = $6000
@@ -33,7 +33,7 @@
 
 ; Goal End delay in frames after the !GOAL_RING_ROULETTE_FRAMES is done.
 ; Change this to make it level ending start/end sooner. 
-!GOAL_RING_END_DELAY = $0180
+!GOAL_RING_END_DELAY = $0100
 
 ; Mode 0 only. Player input is $0200 for left or $0100 for right, $0000 for standing still.
 ; X speed is signed; $0000 starts from rest and accelerates normally.
